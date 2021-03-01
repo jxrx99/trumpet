@@ -4,3 +4,4 @@ scikit-learn
 nltk
 tensorflow-cpu==2.3.0
 Flask
+gunicorn
