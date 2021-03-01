@@ -1,0 +1,40 @@
+<link href="../static/css/style1.css" rel="stylesheet" type="text/css" media="all" />
+
+<html>
+    <body>
+        <table>
+            <tr>
+                {% for col in column_names %}
+                <th>{{col}}</th>
+                {% endfor %}
+                <th>Make a guess!</th>
+            </tr>
+            <form method="POST" action="/get_answer">
+            {% for row in row_data %}
+            <tr>
+                {% for col, row_ in zip(column_names, row) %}
+                {% if col == link_column %}
+                <td>
+                    <!-- <button type="submit" value={{ row_ }} name="person_id" form="patient_form" class="patient_button"> -->
+                        {{ row_ }}
+                    <!-- </button> -->
+                    <input type="hidden" name="real_answer" value={{ row_ }}>
+                </td>
+                {% else %}
+                <td>{{row_}}</td>
+                {% endif %}
+                {% endfor %}
+                <td>
+                        <input type="radio" name="answer" value="real">
+                        <label for="male">Real</label><br>
+                        <input type="radio" name="answer" value="fake">
+                        <label for="female">Fake</label><br>
+
+                        <input type="submit" value="Submit">
+                </td>
+            </tr>
+            {% endfor %}
+            </form>
+        </table>
+    </body>
+</html>
