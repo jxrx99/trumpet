@@ -1,0 +1,6 @@
+numpy==1.17.2 # so we get the mkl libs as well
+pandas
+scikit-learn
+nltk
+tensorflow-cpu==2.3.0
+Flask
